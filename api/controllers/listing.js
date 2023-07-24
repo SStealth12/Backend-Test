@@ -40,7 +40,8 @@ export const getListing = async (req, res, next) => {
 
 export const getAllListing = async (req, res, next) => {
     try {
-        const listings = await Listing.find(req.query);
+        const {limit, featured}= req.query;
+        const listings = await Listing.find({featured:featured}).limit(limit);
         res.status(200).json(listings);
     } catch (err) {
         next(err);

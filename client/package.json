@@ -37,8 +37,6 @@
       "last 1 firefox version",
       "last 1 safari version"
     ]
-  }, "proxy": "http://localhost:8800/api",
-  "devDependencies": {
-    "babel-loader": "^9.1.3"
-  } 
+  }, 
+  "proxy": "http://localhost:8800/api"
 }
