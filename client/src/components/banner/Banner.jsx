@@ -9,7 +9,7 @@ const Banner = () => {
                         <img
                             src="/assets/images/banner-1.png"
                             alt="repairs banner"
-                            class="banner-img"
+                            className="banner-img"
                         />
 
                         <div className="banner-content">
@@ -19,7 +19,7 @@ const Banner = () => {
 
                             <p className="banner-text"></p>
 
-                            <a href="/#" class="banner-btn">Book now</a>
+                            <a href="/#" className="banner-btn">Book now</a>
                         </div>
                     </div>
 

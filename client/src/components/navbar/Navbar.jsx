@@ -1,16 +1,32 @@
 import { Helmet } from 'react-helmet';
 import "./navbar.css"
 import { useNavigate } from 'react-router-dom';
-import React, { useState } from 'react';
+import React, { useContext, useState } from 'react';
+import { AuthContext } from '../../context/AuthContext';
 
 const Navbar = () => {
+    const { user, dispatch } = useContext(AuthContext);
+
     const [searchInput, setSearchInput] = useState('');
     const navigate = useNavigate()
 
     const handleSearch = () => {
-        navigate("/listings/search", { state: {searchQuery: searchInput} });
+        if (!searchInput.trim()) {
+            return;
+        }
+        navigate("/listings/search", { state: { searchQuery: searchInput } });
     }
 
+    const handleLogout = async (e) => {
+        e.preventDefault();
+        try {
+            dispatch({ type: "LOGOUT" });
+            navigate("/");
+        }
+        catch (err) {
+            dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+        }
+    };
 
     return (
         <div className="header-main">
@@ -26,7 +42,7 @@ const Navbar = () => {
             </Helmet>
 
             <div className="container">
-                <a href="/#" class="header-logo">
+                <a href="/home" className="header-logo">
                     <img
                         src="/assets/images/logo/localize_logo.png"
                         alt="Localize Logo"
@@ -50,25 +66,22 @@ const Navbar = () => {
                         <ion-icon name="search-outline"></ion-icon>
                     </button>
 
-                    <button className="category-btn" onclick="search()">
+                    <button className="category-btn">
                         <ion-icon name="reorder-three-outline"></ion-icon>
                     </button>
                 </div>
 
                 <div className="header-user-actions">
-                    <button className="action-btn">
-                        <ion-icon name="person-outline"></ion-icon>
-                    </button>
+                    <div className="dropdown">
+                        <button className="action-btn">
+                            <ion-icon name="person-outline"></ion-icon>
+                        </button>
 
-                    <button className="action-btn">
-                        <ion-icon name="heart-outline"></ion-icon>
-                        <span class="count">0</span>
-                    </button>
-
-                    <button className="action-btn">
-                        <ion-icon name="bag-handle-outline"></ion-icon>
-                        <span className="count">0</span>
-                    </button>
+                        <div className="dropdown-content">
+                            <div className="dropdown-title">Logged in as <b>{user.username}</b></div>
+                            <button onClick={handleLogout}>Log out</button>
+                        </div>
+                    </div>
                 </div>
             </div>
         </div>

@@ -22,8 +22,9 @@ const ListingSchema = new mongoose.Schema({
         type: String,
         required: true,
     },
-    photos:{
-        type: [String],
+    createdBy:{
+        type: String,
+        required: true,
     },
     oldPrice:{
         type: Number,

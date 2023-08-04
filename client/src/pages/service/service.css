@@ -205,4 +205,8 @@ img{
     .product-content{
         padding-top: 0;
     }
+    
+    .product-price span{
+    color: black;
+    }
 }

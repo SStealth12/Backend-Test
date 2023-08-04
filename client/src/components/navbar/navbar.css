@@ -428,10 +428,56 @@
             border-radius: var(--border-radius-md);
   }
   
-  
-  
-  
-  
+     /* Style for the dropdown container */
+.dropdown {
+  position: relative;
+}
+
+/* Style for the button */
+.action-btn {
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+}
+
+/* Style for the dropdown content */
+.dropdown-content {
+  position: absolute;
+  right: 0;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  padding: 8px 0;
+  z-index: 1;
+}
+
+/* Style for the dropdown links */
+.dropdown-content button {
+  display: block;
+  color: #333;
+  padding: 8px 16px;
+  text-decoration: none;
+  text-align: center;
+}
+
+/* Style for the dropdown links on hover */
+.dropdown-content button:hover {
+  background-color: #f1f1f1;
+}
+
+.dropdown-title {
+  text-align: center;
+}
+
+/* Show dropdown content when the button is hovered */
+.dropdown:hover .dropdown-content {
+  display: block;
+}
+
+/* Hide dropdown content when the mouse is not over the button or the dropdown content */
+.dropdown-content:not(:hover) {
+  display: none;
+}
+ 
   /*-----------------------------------*\
     #BANNER
   \*-----------------------------------*/
@@ -998,8 +1044,6 @@
       -webkit-border-top-right-radius: var(--border-radius-md);
               border-top-right-radius: var(--border-radius-md);
     }
-  
-  
   
     /**
      * #BANNER

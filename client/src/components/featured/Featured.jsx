@@ -1,9 +1,8 @@
-import React from 'react'
+import React from 'react';
 import useFetch from '../../hooks/useFetch'
 const Featured = () => {
 
-    const { data, loading, error } = useFetch("/listing?featured=true")
-
+    const { data, loading, error } = useFetch("/listing?featured=true&limit=4")
     return (
         <div className='featured'>
             <div className="container">
@@ -32,34 +31,28 @@ const Featured = () => {
 
                                             <div className="showcase-actions">
                                                 <button className="btn-action">
-                                                    <ion-icon name="heart-outline"></ion-icon>
-                                                </button>
-
-                                                <button className="btn-action">
                                                     <ion-icon name="bag-add-outline"></ion-icon>
                                                 </button>
                                             </div>
                                         </div>
 
                                         <div className="showcase-content">
-                                            <a href="/#" className="showcase-category">{item.type}</a>
+                                            <a href={`/listings/${item._id}`} className="showcase-category">{item.type}</a>
 
-                                            <a href="listings-detailed-1.html">
+                                            <a href={`/listings/${item._id}`} >
                                                 <h3 className="showcase-title">{item.name}</h3>
                                                 <h3 className="showcase-company">{item.provider}</h3>
                                             </a>
 
                                             <div className="price-box">
-                                                <p className="price">{item.newPrice}</p>
-                                                <del>{item.oldPrice}</del>
+                                                <p className="price">₱{item.newPrice}</p>
+                                                <del>₱{item.oldPrice}</del>
                                             </div>
                                         </div>
                                     </div>
-
                                 ))}
                             </>)}
                     </div>
-
                 </div>
             </div>
         </div>

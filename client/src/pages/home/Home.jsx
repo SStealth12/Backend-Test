@@ -26,7 +26,7 @@ const Home = () => {
 
                         <div className="slider-item">
 
-                            <img src="./assets/images/homepage-banner2.svg" alt="bg2 banner" class="banner-img" />
+                            <img src="./assets/images/homepage-banner2.svg" alt="bg2 banner" className="banner-img" />
 
                         </div>
 

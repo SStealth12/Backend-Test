@@ -3,29 +3,57 @@ import Navbar from '../../components/navbar/Navbar'
 import Footer from '../../components/footer/Footer'
 import React, { useEffect } from 'react'
 import { Helmet } from 'react-helmet';
+import { useState } from "react";
+import useFetch from '../../hooks/useFetch';
 
 import "./service.css"
+import { useLocation } from 'react-router-dom';
+import Desktopnav from '../../components/desktopnav/Desktopnav';
+import Popup from '../../components/popup/Popup';
 
 function Service() {
   useEffect(() => {
-    const script = document.createElement('script');
-    script.src = '/js/listings-detailed.js'; // The path to your external JavaScript file
-    script.async = true;
-    document.body.appendChild(script);
+    const imgs = document.querySelectorAll('.img-select a');
+    const imgBtns = [...imgs];
+    let imgId = 1;
 
-    return () => {
-      // Clean up the script when the component unmounts
-      document.body.removeChild(script);
-    };
+    imgBtns.forEach((imgItem) => {
+      imgItem.addEventListener('click', (event) => {
+        event.preventDefault();
+        imgId = imgItem.dataset.id;
+        slideImage();
+      });
+    });
+
+    function slideImage() {
+      const displayWidth = document.querySelector('.img-showcase img:first-child').clientWidth;
+
+      document.querySelector('.img-showcase').style.transform = `translateX(${- (imgId - 1) * displayWidth}px)`;
+    }
+
+    window.addEventListener('resize', slideImage);
   }, []);
+
+  const location = useLocation();
+  console.log(location)
+  const id = location.pathname.split("/")[2];
+  console.log(id)
+
+  const { data, loading, error } = useFetch(`/listing/find/${id}`)
+
+  const [openModal, setOpenModal]= useState(false);
+  const handleClick = () => {
+    setOpenModal(true);
+  }
 
   return (
     <div className='Service'>
       <Promobar />
       <Navbar />
-      
+      <Desktopnav />
 
-      <div className="card-wrapper">
+
+      {loading ? ("loading") : (<div className="card-wrapper">
         <Helmet>
           <script
             type="module"
@@ -70,31 +98,28 @@ function Service() {
             </div>
           </div>
           <div className="product-content">
-            <h2 className="product-title">Dog Grooming</h2>
+            <h2 className="product-title">{data.name}</h2>
 
 
             <div className="product-price">
-              <p>Old Price: <span>₱75.00</span></p>
-              <p className="new-price">New Price: <span>₱48.00</span></p>
+              <p>Old Price: <span>₱{data.oldPrice}</span></p>
+              <p className="new-price">New Price: <span>₱{data.newPrice}</span></p>
             </div>
 
             <div className="service-provider">
-              <p> Service Provider: Fur-Ever Fresh</p>
-              <p> Address: 123 Maple Street, Anytown, Philippines</p>
+              <p> Service Provider: {data.provider}</p>
+              <p> Address: {data.address}</p>
             </div>
 
             <div className="product-detail">
-              <h2>about this Service: </h2>
-              <p>At our dog grooming service, we provide top-quality care and pampering for your furry companions. Our experienced groomers are skilled
-                in handling dogs of all breeds and sizes, ensuring a comfortable and stress-free grooming experience. From stylish haircuts and gentle
-                bathing to nail trimming and ear cleaning, we strive to make your dog look and feel their best, leaving them fresh, clean, and
-                tail-waggingly happy.</p>
+              <h2>About this Service: </h2>
+              <p>{data.description}</p>
 
             </div>
 
             <div className="purchase-info">
 
-              <button type="button" className="btn">
+              <button onClick={handleClick} type="button" className="btn">
                 Book Now <i className="fas fa-shopping-cart"></i>
               </button>
             </div>
@@ -115,11 +140,12 @@ function Service() {
             </div>
           </div>
         </div>
-      </div>
+      </div>)}
       <Footer />
+      {openModal && <Popup setOpen={setOpenModal} listingId={id}/>}
     </div>
 
-    
+
   )
 }
 

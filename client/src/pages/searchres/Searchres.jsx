@@ -5,23 +5,29 @@ import Searchitem from '../../components/searchitem/Searchitem';
 import "./searchres.css"
 
 import { useLocation } from 'react-router-dom'
-import React, { useState, useEffect } from 'react';
+import React, { useContext, useState, useEffect } from 'react';
 import { Helmet } from 'react-helmet';
 import { useNavigate } from 'react-router-dom';
-
+import useFetch from '../../hooks/useFetch'
+import { AuthContext } from '../../context/AuthContext';
 
 
 const Searchres = () => {
+  const { user, dispatch } = useContext(AuthContext);
 
   const location = useLocation();
-  const [searchInput, setSearchInput] = useState(location.state?.searchInput || '');
+  const [searchInput, setSearchInput] = useState(location.state?.searchInput);
   const navigate = useNavigate()
 
   const [searchResultsTitle, setSearchResultsTitle] = useState('Search Results');
 
   const handleSearch = () => {
+
+    if (!searchInput.trim()) {
+      return;
+    }
     navigate("/listings/search", { state: { searchQuery: searchInput } });
-    setSearchInput('');
+    reFetch();
   }
 
   useEffect(() => {
@@ -32,6 +38,20 @@ const Searchres = () => {
     }
   }, [location.state]);
 
+  const { data, loading, error, reFetch } = useFetch(
+    `/listing?name=${searchInput}`
+  );
+
+  const handleLogout = async (e) => {
+    e.preventDefault();
+    try {
+      dispatch({ type: "LOGOUT" });
+      navigate("/");
+    }
+    catch (err) {
+      dispatch({ type: "LOGIN_FAILURE", payload: err.response.data });
+    }
+  };
 
   return (
     <div className='search-results'>
@@ -65,7 +85,7 @@ const Searchres = () => {
               id="searchInput"
               name="search"
               className="search-field"
-              placeholder="Search for a service..."
+              placeholder={searchInput}
               value={searchInput}
               onChange={(e) => setSearchInput(e.target.value)}
             />
@@ -80,19 +100,17 @@ const Searchres = () => {
           </div>
 
           <div className="header-user-actions">
-            <button className="action-btn">
-              <ion-icon name="person-outline"></ion-icon>
-            </button>
+            <div className="dropdown">
+              <button className="action-btn">
+                <ion-icon name="person-outline"></ion-icon>
+              </button>
 
-            <button className="action-btn">
-              <ion-icon name="heart-outline"></ion-icon>
-              <span class="count">0</span>
-            </button>
+              <div className="dropdown-content">
+                <div className="dropdown-title">Logged in as <b>{user.username}</b></div>
+                <button onClick={handleLogout}>Log out</button>
+              </div>
+            </div>
 
-            <button className="action-btn">
-              <ion-icon name="bag-handle-outline"></ion-icon>
-              <span className="count">0</span>
-            </button>
           </div>
         </div>
       </div>
@@ -117,14 +135,16 @@ const Searchres = () => {
               <h2 className="title">{searchResultsTitle}</h2>
 
               <div className="product-grid">
-                <Searchitem />
-                <Searchitem />
-                <Searchitem />
-                <Searchitem />
-                <Searchitem />
-                <Searchitem />
-                <Searchitem />
-                <Searchitem />
+                {loading ? (
+                  "loading"
+                ) : (
+                  <>
+                    {data.map((item) => (
+                      <Searchitem item={item} key={item._id} />
+                    ))}
+                  </>
+                )}
+
               </div>
             </div>
           </div>

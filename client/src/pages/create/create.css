@@ -233,7 +233,11 @@
     word-wrap: break-word; /* Wrap text to the next line */
   }
   
-  
+
+  .button-container span{
+    color: black;
+  }
+
   .search-field::-webkit-search-cancel-button { display: none; }
   
   .search-btn {
@@ -1791,7 +1795,7 @@
   }
   
   .listing-form button[type="submit"]:hover {
-    background-color: #45a049;
+    background-color: var(--eerie-black);
   }
   
       .overlay {

@@ -23,19 +23,19 @@ const Footer = () => {
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Repairs</a>
+                            <a href="/home" className="footer-nav-link">Repairs</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Healthcare</a>
+                            <a href="/home" className="footer-nav-link">Healthcare</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Pets</a>
+                            <a href="/home" className="footer-nav-link">Pets</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Personal Care</a>
+                            <a href="/home" className="footer-nav-link">Personal Care</a>
                         </li>
                     </ul>
 
@@ -45,23 +45,23 @@ const Footer = () => {
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Price drop</a>
+                            <a href="/home" className="footer-nav-link">Price drop</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">New Services</a>
+                            <a href="/home" className="footer-nav-link">New Services</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Discounts</a>
+                            <a href="/home" className="footer-nav-link">Discounts</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Contact us</a>
+                            <a href="/home" className="footer-nav-link">Contact us</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Sitemap</a>
+                            <a href="/home" className="footer-nav-link">Sitemap</a>
                         </li>
                     </ul>
 
@@ -71,19 +71,19 @@ const Footer = () => {
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Legal Notice</a>
+                            <a href="/home" className="footer-nav-link">Legal Notice</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Terms and conditions</a>
+                            <a href="/home" className="footer-nav-link">Terms and conditions</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">About us</a>
+                            <a href="/home" className="footer-nav-link">About us</a>
                         </li>
 
                         <li className="footer-nav-item">
-                            <a href="/#" className="footer-nav-link">Secure payment</a>
+                            <a href="/home" className="footer-nav-link">Secure payment</a>
                         </li>
                     </ul>
 
@@ -100,8 +100,7 @@ const Footer = () => {
                             <a
                                 href="https://goo.gl/maps/vSTM1RhE2WHAFXaA9"
                                 className="footer-nav-link"
-                            >2401 Taft Ave, Malate, Manila, 1004 Metro Manila</a
-                            >
+                            >2401 Taft Ave, Malate, Manila, 1004 Metro Manila</a>
                         </li>
 
                         <li className="footer-nav-item flex">
@@ -110,8 +109,7 @@ const Footer = () => {
                             </div>
 
                             <a href="tel:+607936-8058" className="footer-nav-link"
-                            >(02) 8524 4611</a
-                            >
+                            >(02) 8524 4611</a>
                         </li>
 
                         <li className="footer-nav-item flex">
@@ -120,8 +118,7 @@ const Footer = () => {
                             </div>
 
                             <a href="example@dlsu.edu.ph" className="footer-nav-link"
-                            >example@dlsu.edu.ph</a
-                            >
+                            >example@dlsu.edu.ph</a>
                         </li>
                     </ul>
 
@@ -133,25 +130,25 @@ const Footer = () => {
                         <li>
                             <ul className="social-link">
                                 <li className="footer-nav-item">
-                                    <a href="/#" className="footer-nav-link">
+                                    <a href="/home" className="footer-nav-link">
                                         <ion-icon name="logo-facebook"></ion-icon>
                                     </a>
                                 </li>
 
                                 <li className="footer-nav-item">
-                                    <a href="/#" className="footer-nav-link">
+                                    <a href="/home" className="footer-nav-link">
                                         <ion-icon name="logo-twitter"></ion-icon>
                                     </a>
                                 </li>
 
                                 <li className="footer-nav-item">
-                                    <a href="/#" className="footer-nav-link">
+                                    <a href="/home" className="footer-nav-link">
                                         <ion-icon name="logo-linkedin"></ion-icon>
                                     </a>
                                 </li>
 
                                 <li className="footer-nav-item">
-                                    <a href="/#" className="footer-nav-link">
+                                    <a href="/home" className="footer-nav-link">
                                         <ion-icon name="logo-instagram"></ion-icon>
                                     </a>
                                 </li>
@@ -169,7 +166,7 @@ const Footer = () => {
                         className="payment-img"
                     />
                 </div>
-            </div>
+            </div>    
         </footer>
     )
 }
