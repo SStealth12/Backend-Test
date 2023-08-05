@@ -46,7 +46,7 @@ const Create = () => {
         console.log(requestData)
 
         try {
-            const res = await axios.post('http://localhost:8800/api/listing', requestData);
+            const res = await axios.post('/listing', requestData);
             console.log(res.data);
             setSuccess(true);
             setError(null);
@@ -64,22 +64,22 @@ const Create = () => {
             <Navbar />
             <Desktopnav />
 
-            <div class="banner">
+            <div className="banner">
 
-                <div class="container">
+                <div className="container">
 
-                    <div class="slider-container has-scrollbar">
+                    <div className="slider-container has-scrollbar">
 
-                        <div class="slider-item">
+                        <div className="slider-item">
 
-                            <img src="./assets/images/create-banner1.svg" alt="bg1 banner" class="banner-img" />
+                            <img src="./assets/images/create-banner1.svg" alt="bg1 banner" className="banner-img" />
 
 
                         </div>
 
-                        <div class="slider-item">
+                        <div className="slider-item">
 
-                            <img src="./assets/images/create-banner2.svg" alt="bg2 banner" class="banner-img" />
+                            <img src="./assets/images/create-banner2.svg" alt="bg2 banner" className="banner-img" />
 
                         </div>
 

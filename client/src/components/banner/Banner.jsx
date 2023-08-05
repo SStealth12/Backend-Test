@@ -19,7 +19,7 @@ const Banner = () => {
 
                             <p className="banner-text"></p>
 
-                            <a href="/#" className="banner-btn">Book now</a>
+                            <a href="/listings" className="banner-btn">Book now</a>
                         </div>
                     </div>
 
@@ -37,7 +37,7 @@ const Banner = () => {
 
                             <p className="banner-text"></p>
 
-                            <a href="/#" className="banner-btn">Book now</a>
+                            <a href="/listings" className="banner-btn">Book now</a>
                         </div>
                     </div>
                 </div>

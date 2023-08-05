@@ -2,7 +2,7 @@ import React from 'react';
 import useFetch from '../../hooks/useFetch'
 const Featured = () => {
 
-    const { data, loading, error } = useFetch("/listing?featured=true&limit=4")
+    const { data, loading, error } = useFetch("/listing?featured=true&limit=8")
     return (
         <div className='featured'>
             <div className="container">
@@ -16,18 +16,127 @@ const Featured = () => {
                                 {data.map((item) => (
                                     <div className="showcase" key={item._id}>
                                         <div className="showcase-banner">
-                                            <img
-                                                src={item.photos[0]}
-                                                alt=""
-                                                width="300"
-                                                className="product-img default"
-                                            />
-                                            <img
-                                                src={item.photos[0]}
-                                                alt=""
-                                                width="300"
-                                                className="product-img hover"
-                                            />
+                                            {item.type === "Grooming" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/1.png"
+                                                        alt="Dog Grooming"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/1.png"
+                                                        alt="Dog Grooming"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : item.type === "Spa" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/2.png"
+                                                        alt="Spa"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/2.png"
+                                                        alt="Spa"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : item.type === "Electronics" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/3.png"
+                                                        alt="Electronics"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/3.png"
+                                                        alt="Electronics"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : item.type === "Auto" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/4.png"
+                                                        alt="Auto"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/4.png"
+                                                        alt="Auto"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : item.type === "Haircuts And Styling" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/5.png"
+                                                        alt="Haircuts and Styling"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/5.png"
+                                                        alt="Haircuts and Styling"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : item.type === "Dental" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/6.png"
+                                                        alt="Dental"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/6.png"
+                                                        alt="Dental"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : item.type === "Day Care" ? (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/7.png"
+                                                        alt="Day Care"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/7.png"
+                                                        alt="Day Care"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <img
+                                                        src="/assets/images/services/8.png"
+                                                        alt="Home"
+                                                        width="300"
+                                                        className="product-img default"
+                                                    />
+                                                    <img
+                                                        src="/assets/images/services/8.png"
+                                                        alt="Home"
+                                                        width="300"
+                                                        className="product-img hover"
+                                                    />
+                                                </>
+                                            )}
 
                                             <div className="showcase-actions">
                                                 <button className="btn-action">

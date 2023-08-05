@@ -12,6 +12,7 @@ import Home from "./pages/home/Home";
 import Create from "./pages/create/Create";
 import Login from "./pages/login/Login";
 import Register from "./pages/register/Register";
+import Update from "./pages/update/Update";
 
 function App() {
   return (
@@ -25,6 +26,7 @@ function App() {
         <Route path="/listings/:id" element={<Service />} />
         <Route path="/create" element={<Create />} />
         <Route path="/register" element={<Register />} />
+        <Route path="/update/:id" element={<Update/>}/>
       </Routes>
     </BrowserRouter>
   );

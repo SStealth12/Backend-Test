@@ -41,7 +41,7 @@ function Service() {
 
   const { data, loading, error } = useFetch(`/listing/find/${id}`)
 
-  const [openModal, setOpenModal]= useState(false);
+  const [openModal, setOpenModal] = useState(false);
   const handleClick = () => {
     setOpenModal(true);
   }
@@ -53,7 +53,7 @@ function Service() {
       <Desktopnav />
 
 
-      {loading ? ("loading") : (<div className="card-wrapper">
+      <div className="card-wrapper">
         <Helmet>
           <script
             type="module"
@@ -68,36 +68,241 @@ function Service() {
           <div className="product-imgs">
             <div className="img-display">
               <div className="img-showcase">
-                <img src="/assets/images/services/1.png" alt="dog grooming" />
-                <img src="/assets/images/services/1.png" alt="dog grooming" />
-                <img src="/assets/images/services/1.png" alt="dog grooming" />
-                <img src="/assets/images/services/1.png" alt="dog grooming" />
+                {data.type === "Grooming" ? (
+                  <>
+                    <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    <img src="/assets/images/services/1.png" alt="dog grooming" />
+                  </>
+                ) : data.type === "Spa" ? (
+                  <>
+                    <img src="/assets/images/services/2.png" alt="spa" />
+                    <img src="/assets/images/services/2.png" alt="spa" />
+                    <img src="/assets/images/services/2.png" alt="spa" />
+                    <img src="/assets/images/services/2.png" alt="spa" />
+                  </>
+                ) : data.type === "Electronics" ? (
+                  <>
+                    <img src="/assets/images/services/3.png" alt="electronics" />
+                    <img src="/assets/images/services/3.png" alt="electronics" />
+                    <img src="/assets/images/services/3.png" alt="electronics" />
+                    <img src="/assets/images/services/3.png" alt="electronics" />
+                  </>
+                ) : data.type === "Auto" ? (
+                  <>
+                    <img src="/assets/images/services/4.png" alt="auto" />
+                    <img src="/assets/images/services/4.png" alt="auto" />
+                    <img src="/assets/images/services/4.png" alt="auto" />
+                    <img src="/assets/images/services/4.png" alt="auto" />
+                  </>
+                ) : data.type === "Haircuts And Styling" ? (
+                  <>
+                    <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+                    <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+                    <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+                    <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+                  </>
+                ) : data.type === "Dental" ? (
+                  <>
+                    <img src="/assets/images/services/6.png" alt="dental" />
+                    <img src="/assets/images/services/6.png" alt="dental" />
+                    <img src="/assets/images/services/6.png" alt="dental" />
+                    <img src="/assets/images/services/6.png" alt="dental" />
+                  </>
+                ) : data.type === "Day Care" ? (
+                  <>
+                    <img src="/assets/images/services/7.png" alt="day care" />
+                    <img src="/assets/images/services/7.png" alt="day care" />
+                    <img src="/assets/images/services/7.png" alt="day care" />
+                    <img src="/assets/images/services/7.png" alt="day care" />
+                  </>
+                ) : (
+                  <>
+                    <img src="/assets/images/services/8.png" alt="home" />
+                    <img src="/assets/images/services/8.png" alt="home" />
+                    <img src="/assets/images/services/8.png" alt="home" />
+                    <img src="/assets/images/services/8.png" alt="home" />
+                  </>
+                )}
               </div>
             </div>
             <div className="img-select">
               <div className="img-item">
                 <a href="/#" data-id="1">
-                  <img src="/assets/images/services/1.png" alt="dog grooming" />
+                  {data.type === "Grooming" ? (
+                    <>
+                      <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    </>
+                  ) : data.type === "Spa" ? (
+                    <>
+                      <img src="/assets/images/services/2.png" alt="spa" />
+                    </>
+                  ) : data.type === "Electronics" ? (
+                    <>
+                      <img src="/assets/images/services/3.png" alt="electronics" />
+
+                    </>
+                  ) : data.type === "Auto" ? (
+                    <>
+                      <img src="/assets/images/services/4.png" alt="auto" />
+
+                    </>
+                  ) : data.type === "Haircuts And Styling" ? (
+                    <>
+                      <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+
+                    </>
+                  ) : data.type === "Dental" ? (
+                    <>
+                      <img src="/assets/images/services/6.png" alt="dental" />
+
+                    </>
+                  ) : data.type === "Day Care" ? (
+                    <>
+                      <img src="/assets/images/services/7.png" alt="day care" />
+
+                    </>
+                  ) : (
+                    <>
+                      <img src="/assets/images/services/8.png" alt="home" />
+
+                    </>
+                  )}
                 </a>
               </div>
               <div className="img-item">
                 <a href="/#" data-id="2">
-                  <img src="/assets/images/services/1.png" alt="dog grooming" />
+                  {data.type === "Grooming" ? (
+                    <>
+                      <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    </>
+                  ) : data.type === "Spa" ? (
+                    <>
+                      <img src="/assets/images/services/2.png" alt="spa" />
+                    </>
+                  ) : data.type === "Electronics" ? (
+                    <>
+                      <img src="/assets/images/services/3.png" alt="electronics" />
+
+                    </>
+                  ) : data.type === "Auto" ? (
+                    <>
+                      <img src="/assets/images/services/4.png" alt="auto" />
+
+                    </>
+                  ) : data.type === "Haircuts And Styling" ? (
+                    <>
+                      <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+
+                    </>
+                  ) : data.type === "Dental" ? (
+                    <>
+                      <img src="/assets/images/services/6.png" alt="dental" />
+
+                    </>
+                  ) : data.type === "Day Care" ? (
+                    <>
+                      <img src="/assets/images/services/7.png" alt="day care" />
+
+                    </>
+                  ) : (
+                    <>
+                      <img src="/assets/images/services/8.png" alt="home" />
+
+                    </>
+                  )}
                 </a>
               </div>
               <div className="img-item">
                 <a href="/#" data-id="3">
-                  <img src="/assets/images/services/1.png" alt="dog grooming" />
+                  {data.type === "Grooming" ? (
+                    <>
+                      <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    </>
+                  ) : data.type === "Spa" ? (
+                    <>
+                      <img src="/assets/images/services/2.png" alt="spa" />
+                    </>
+                  ) : data.type === "Electronics" ? (
+                    <>
+                      <img src="/assets/images/services/3.png" alt="electronics" />
+
+                    </>
+                  ) : data.type === "Auto" ? (
+                    <>
+                      <img src="/assets/images/services/4.png" alt="auto" />
+
+                    </>
+                  ) : data.type === "Haircuts And Styling" ? (
+                    <>
+                      <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+
+                    </>
+                  ) : data.type === "Dental" ? (
+                    <>
+                      <img src="/assets/images/services/6.png" alt="dental" />
+
+                    </>
+                  ) : data.type === "Day Care" ? (
+                    <>
+                      <img src="/assets/images/services/7.png" alt="day care" />
+
+                    </>
+                  ) : (
+                    <>
+                      <img src="/assets/images/services/8.png" alt="home" />
+
+                    </>
+                  )}
                 </a>
               </div>
               <div className="img-item">
                 <a href="/#" data-id="4">
-                  <img src="/assets/images/services/1.png" alt="dog grooming" />
+                  {data.type === "Grooming" ? (
+                    <>
+                      <img src="/assets/images/services/1.png" alt="dog grooming" />
+                    </>
+                  ) : data.type === "Spa" ? (
+                    <>
+                      <img src="/assets/images/services/2.png" alt="spa" />
+                    </>
+                  ) : data.type === "Electronics" ? (
+                    <>
+                      <img src="/assets/images/services/3.png" alt="electronics" />
+
+                    </>
+                  ) : data.type === "Auto" ? (
+                    <>
+                      <img src="/assets/images/services/4.png" alt="auto" />
+
+                    </>
+                  ) : data.type === "Haircuts And Styling" ? (
+                    <>
+                      <img src="/assets/images/services/5.png" alt="haircuts and styling" />
+
+                    </>
+                  ) : data.type === "Dental" ? (
+                    <>
+                      <img src="/assets/images/services/6.png" alt="dental" />
+
+                    </>
+                  ) : data.type === "Day Care" ? (
+                    <>
+                      <img src="/assets/images/services/7.png" alt="day care" />
+
+                    </>
+                  ) : (
+                    <>
+                      <img src="/assets/images/services/8.png" alt="home" />
+
+                    </>
+                  )}
                 </a>
               </div>
             </div>
           </div>
-          <div className="product-content">
+          {loading ? ("loading") : (<div className="product-content">
             <h2 className="product-title">{data.name}</h2>
 
 
@@ -138,11 +343,11 @@ function Service() {
                 <ion-icon name="call"></ion-icon>
               </a>
             </div>
-          </div>
+          </div>)}
         </div>
-      </div>)}
+      </div>
       <Footer />
-      {openModal && <Popup setOpen={setOpenModal} listingId={id}/>}
+      {openModal && <Popup setOpen={setOpenModal} listingId={id} />}
     </div>
 
 
